@@ -1,16 +1,1749 @@
 ---
-
+// Formulario de Garantía de Germinación de Semillas
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Formulario de Garantía - Germinación de Semillas</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="app-container">
+			<!-- Header -->
+			<header class="header">
+				<div class="header-content">
+					<div class="logo">
+						<div class="seed-icon">🌱</div>
+						<h1>Garantía de Germinación</h1>
+					</div>
+					<div class="step-indicator">
+						<div class="step active" data-step="1">
+							<span class="step-number">1</span>
+							<span class="step-label">País y Términos</span>
+						</div>
+						<div class="step" data-step="2">
+							<span class="step-number">2</span>
+							<span class="step-label">Datos y Variedad</span>
+						</div>
+						<div class="step" data-step="3">
+							<span class="step-number">3</span>
+							<span class="step-label">Documentación</span>
+						</div>
+						<div class="step" data-step="4">
+							<span class="step-number">4</span>
+							<span class="step-label">Confirmación</span>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- Main Form Container -->
+			<main class="main-container">
+				<div class="form-container">
+					<form id="warranty-form" class="warranty-form">
+						
+						<!-- Step 1: Country and Terms -->
+						<div class="form-step active" id="step-1">
+							<div class="step-header">
+								<h2>Selección de País y Aceptación de Términos</h2>
+								<p>Para procesar su solicitud de garantía, necesitamos verificar su ubicación y que acepte nuestros términos y condiciones.</p>
+							</div>
+							
+							<div class="form-group">
+								<label class="country-label">País de Residencia</label>
+								<p class="country-subtitle">Seleccione el país donde se encuentra ubicado para procesar su garantía</p>
+								
+								<div class="country-flags">
+									<div class="flag-option" data-country="MX">
+										<div class="flag-circle">
+											<span class="flag">🇲🇽</span>
+										</div>
+										<span class="country-name">México</span>
+									</div>
+									
+									<div class="flag-option" data-country="AR">
+										<div class="flag-circle">
+											<span class="flag">🇦🇷</span>
+										</div>
+										<span class="country-name">Argentina</span>
+									</div>
+									
+									<div class="flag-option" data-country="BR">
+										<div class="flag-circle">
+											<span class="flag">🇧🇷</span>
+										</div>
+										<span class="country-name">Brasil</span>
+									</div>
+									
+									<div class="flag-option" data-country="CO">
+										<div class="flag-circle">
+											<span class="flag">🇨🇴</span>
+										</div>
+										<span class="country-name">Colombia</span>
+									</div>
+									
+									<div class="flag-option" data-country="ES">
+										<div class="flag-circle">
+											<span class="flag">🇪🇸</span>
+										</div>
+										<span class="country-name">España</span>
+									</div>
+								</div>
+								
+								<input type="hidden" id="country" name="country" required>
+								<div id="selected-country" class="selected-country"></div>
+							</div>
+
+							<div class="terms-section">
+								<div class="terms-content">
+									<h3>Términos y Condiciones de Garantía</h3>
+									<div class="terms-text">
+										<p><strong>1. Alcance de la Garantía:</strong> Esta garantía cubre exclusivamente problemas de germinación de las semillas bajo condiciones adecuadas de cultivo.</p>
+										<p><strong>2. Condiciones Requeridas:</strong> Las semillas deben ser plantadas siguiendo las instrucciones del empaque, en condiciones de temperatura y humedad apropiadas.</p>
+										<p><strong>3. Documentación:</strong> Se requiere evidencia fotográfica de las condiciones de cultivo, proceso de germinación y código QR del empaque original.</p>
+										<p><strong>4. Plazo:</strong> La solicitud de garantía debe presentarse dentro de los 30 días posteriores al periodo esperado de germinación.</p>
+										<p><strong>5. Resolución:</strong> En caso de fallo comprobado, ofrecemos reemplazo del producto o reembolso según corresponda.</p>
+									</div>
+								</div>
+								
+								<div class="checkbox-group">
+									<label class="checkbox-label">
+										<input type="checkbox" id="accept-terms" name="acceptTerms" required>
+										<span class="checkmark"></span>
+										<span class="checkbox-text">Acepto los términos y condiciones de garantía</span>
+									</label>
+									
+									<label class="checkbox-label">
+										<input type="checkbox" id="accept-privacy" name="acceptPrivacy" required>
+										<span class="checkmark"></span>
+										<span class="checkbox-text">Acepto el tratamiento de mis datos personales según la política de privacidad</span>
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-actions">
+								<button type="button" class="btn btn-primary continue-btn" data-step="1" disabled>
+									Continuar
+									<span class="btn-icon">→</span>
+								</button>
+							</div>
+						</div>
+
+						<!-- Step 2: Contact Data and Seed Variety -->
+						<div class="form-step" id="step-2">
+							<div class="step-header">
+								<h2>Datos de Contacto y Selección de Variedad</h2>
+								<p>Proporcione sus datos de contacto y especifique la variedad de semillas para la cual solicita la garantía.</p>
+							</div>
+
+							<div class="form-section">
+								<h3>Información de Contacto</h3>
+								<div class="form-row">
+									<div class="form-group">
+										<label for="firstName">Nombre</label>
+										<input type="text" id="firstName" name="firstName" required>
+									</div>
+									<div class="form-group">
+										<label for="lastName">Apellidos</label>
+										<input type="text" id="lastName" name="lastName" required>
+									</div>
+								</div>
+								
+								<div class="form-row">
+									<div class="form-group">
+										<label for="email">Correo Electrónico</label>
+										<input type="email" id="email" name="email" required>
+									</div>
+									<div class="form-group">
+										<label for="phone">Teléfono</label>
+										<input type="tel" id="phone" name="phone" required>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="address">Dirección Completa</label>
+									<textarea id="address" name="address" rows="3" required placeholder="Incluya calle, número, ciudad, código postal"></textarea>
+								</div>
+							</div>
+
+							<div class="form-section">
+								<h3>Información del Producto</h3>
+								<div class="form-row">
+									<div class="form-group">
+										<label for="seedVariety">Variedad de Semilla</label>
+										<select id="seedVariety" name="seedVariety" required>
+											<option value="">Seleccione la variedad</option>
+											<option value="tomato-cherry">Tomate Cherry</option>
+											<option value="tomato-beefsteak">Tomate Beefsteak</option>
+											<option value="lettuce-iceberg">Lechuga Iceberg</option>
+											<option value="lettuce-romaine">Lechuga Romana</option>
+											<option value="pepper-bell">Pimiento Morrón</option>
+											<option value="pepper-hot">Pimiento Picante</option>
+											<option value="carrot-nantes">Zanahoria Nantes</option>
+											<option value="radish-cherry">Rábano Cherry Belle</option>
+											<option value="spinach-bloomsdale">Espinaca Bloomsdale</option>
+											<option value="basil-sweet">Albahaca Dulce</option>
+											<option value="cilantro">Cilantro</option>
+											<option value="parsley-flat">Perejil Liso</option>
+											<option value="cucumber-straight">Pepino Recto</option>
+											<option value="zucchini-green">Calabacín Verde</option>
+											<option value="bean-green">Frijol Verde</option>
+											<option value="pea-garden">Guisante de Jardín</option>
+											<option value="corn-sweet">Maíz Dulce</option>
+											<option value="sunflower-mammoth">Girasol Mammoth</option>
+											<option value="marigold-french">Caléndula Francesa</option>
+											<option value="petunia-grandiflora">Petunia Grandiflora</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="quantity">Cantidad de Semillas</label>
+										<select id="quantity" name="quantity" required>
+											<option value="">Seleccione cantidad</option>
+											<option value="2">x2 semillas</option>
+											<option value="4">x4 semillas</option>
+											<option value="6">x6 semillas</option>
+											<option value="8">x8 semillas</option>
+											<option value="12">x12 semillas</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group">
+										<label for="purchaseDate">Fecha de Compra</label>
+										<input type="date" id="purchaseDate" name="purchaseDate" required>
+									</div>
+									<div class="form-group">
+										<label for="plantingDate">Fecha de Siembra</label>
+										<input type="date" id="plantingDate" name="plantingDate" required>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="issueDescription">Descripción del Problema</label>
+									<textarea id="issueDescription" name="issueDescription" rows="4" required placeholder="Describa detalladamente el problema de germinación observado"></textarea>
+								</div>
+							</div>
+							
+							<div class="form-actions">
+								<button type="button" class="btn btn-secondary prev-btn" data-step="2">
+									<span class="btn-icon">←</span>
+									Anterior
+								</button>
+								<button type="button" class="btn btn-primary next-btn" data-step="2">
+									Continuar
+									<span class="btn-icon">→</span>
+								</button>
+							</div>
+						</div>
+
+						<!-- Step 3: Image Attachments -->
+						<div class="form-step" id="step-3">
+							<div class="step-header">
+								<h2>Documentación Fotográfica</h2>
+								<p>Adjunte las imágenes requeridas para procesar su solicitud de garantía. Todas las imágenes son obligatorias.</p>
+							</div>
+
+							<div class="upload-sections">
+								<div class="upload-section">
+									<div class="upload-header">
+										<h3>🌡️ Condiciones de Temperatura</h3>
+										<p>Foto del termómetro o sensor de temperatura del área de cultivo</p>
+									</div>
+									<div class="upload-area" id="temperature-upload">
+										<input type="file" id="temperature" name="temperature" accept="image/*" required>
+										<div class="upload-placeholder">
+											<div class="upload-icon">📷</div>
+											<p>Haz clic para seleccionar imagen</p>
+											<span>JPG, PNG, max 5MB</span>
+										</div>
+										<div class="upload-preview"></div>
+									</div>
+								</div>
+
+								<div class="upload-section">
+									<div class="upload-header">
+										<h3>💧 Condiciones de Humedad</h3>
+										<p>Foto del higrómetro o evidencia de las condiciones de humedad</p>
+									</div>
+									<div class="upload-area" id="humidity-upload">
+										<input type="file" id="humidity" name="humidity" accept="image/*" required>
+										<div class="upload-placeholder">
+											<div class="upload-icon">📷</div>
+											<p>Haz clic para seleccionar imagen</p>
+											<span>JPG, PNG, max 5MB</span>
+										</div>
+										<div class="upload-preview"></div>
+									</div>
+								</div>
+
+								<div class="upload-section">
+									<div class="upload-header">
+										<h3>🌱 Proceso de Germinación</h3>
+										<p>Foto de las semillas sembradas y su estado actual</p>
+									</div>
+									<div class="upload-area" id="germination-upload">
+										<input type="file" id="germination" name="germination" accept="image/*" required>
+										<div class="upload-placeholder">
+											<div class="upload-icon">📷</div>
+											<p>Haz clic para seleccionar imagen</p>
+											<span>JPG, PNG, max 5MB</span>
+										</div>
+										<div class="upload-preview"></div>
+									</div>
+								</div>
+
+								<div class="upload-section">
+									<div class="upload-header">
+										<h3>📱 Código QR del Envase</h3>
+										<p>Foto clara del código QR presente en el empaque original</p>
+									</div>
+									<div class="upload-area" id="qr-upload">
+										<input type="file" id="qr" name="qr" accept="image/*" required>
+										<div class="upload-placeholder">
+											<div class="upload-icon">📷</div>
+											<p>Haz clic para seleccionar imagen</p>
+											<span>JPG, PNG, max 5MB</span>
+										</div>
+										<div class="upload-preview"></div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-actions">
+								<button type="button" class="btn btn-secondary prev-btn" data-step="3">
+									<span class="btn-icon">←</span>
+									Anterior
+								</button>
+								<button type="button" class="btn btn-primary next-btn" data-step="3">
+									Continuar
+									<span class="btn-icon">→</span>
+								</button>
+							</div>
+						</div>
+
+						<!-- Step 4: Final Confirmation -->
+						<div class="form-step" id="step-4">
+							<div class="step-header">
+								<h2>Confirmación Final</h2>
+								<p>Revise la información y confirme la autenticidad de los datos proporcionados.</p>
+							</div>
+
+							<div class="summary-section">
+								<h3>Resumen de su Solicitud</h3>
+								<div class="summary-content" id="form-summary">
+									<!-- Summary will be populated by JavaScript -->
+								</div>
+							</div>
+
+							<div class="authenticity-section">
+								<div class="warning-box">
+									<div class="warning-icon">⚠️</div>
+									<div class="warning-content">
+										<h4>Declaración de Autenticidad</h4>
+										<p>Al enviar este formulario, declaro bajo mi responsabilidad que:</p>
+										<ul>
+											<li>Toda la información proporcionada es veraz y completa</li>
+											<li>Las imágenes adjuntas son originales y corresponden a mi caso específico</li>
+											<li>No he utilizado fotografías de internet, reutilizado imágenes de otros casos, ni manipulado las evidencias</li>
+											<li>Entiendo que el uso de información falsa o imágenes no auténticas resultará en la <strong>pérdida automática de mi derecho a garantía</strong></li>
+											<li>Acepto que la empresa puede solicitar verificaciones adicionales si lo considera necesario</li>
+										</ul>
+									</div>
+								</div>
+								
+								<div class="checkbox-group">
+									<label class="checkbox-label">
+										<input type="checkbox" id="confirm-authenticity" name="confirmAuthenticity" required>
+										<span class="checkmark"></span>
+										<span class="checkbox-text">
+											<strong>Confirmo que toda la información y las imágenes proporcionadas son auténticas y veraces. 
+											Entiendo que si se detecta el uso de fotografías reutilizadas o información falsa, 
+											perderé automáticamente mi derecho a garantía.</strong>
+										</span>
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-actions">
+								<button type="button" class="btn btn-secondary prev-btn" data-step="4">
+									<span class="btn-icon">←</span>
+									Anterior
+								</button>
+								<button type="submit" class="btn btn-success" id="submit-btn">
+									Enviar Solicitud
+									<span class="btn-icon">✓</span>
+								</button>
+							</div>
+						</div>
+
+					</form>
+
+					<!-- Success Message -->
+					<div class="success-message" id="success-message" style="display: none;">
+						<div class="success-content">
+							<div class="success-icon">✅</div>
+							<h2>¡Solicitud Enviada Exitosamente!</h2>
+							<p>Su solicitud de garantía ha sido recibida. Recibirá un correo de confirmación con el número de seguimiento en los próximos minutos.</p>
+							<p><strong>Número de solicitud:</strong> <span id="request-number"></span></p>
+							<p>Nuestro equipo revisará su caso y se comunicará con usted dentro de 3-5 días hábiles.</p>
+							<button type="button" class="btn btn-primary reset-form-btn">
+								Enviar Nueva Solicitud
+							</button>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<style>
+			/* Reset and Base Styles */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--color-primary: #2d5a2d;
+				--color-primary-light: #4a7c59;
+				--color-primary-dark: #1e3c1e;
+				--color-secondary: #7fb069;
+				--color-accent: #a7c957;
+				--color-success: #6a994e;
+				--color-warning: #f2cc8f;
+				--color-error: #e76f51;
+				--color-background: #f8fffe;
+				--color-surface: #ffffff;
+				--color-text: #2d3748;
+				--color-text-secondary: #4a5568;
+				--color-border: #e2e8f0;
+				--color-shadow: rgba(0, 0, 0, 0.1);
+				
+				--font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				--border-radius: 12px;
+				--border-radius-small: 8px;
+				--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+				--shadow-sm: 0 1px 3px var(--color-shadow);
+				--shadow-md: 0 4px 6px var(--color-shadow);
+				--shadow-lg: 0 10px 15px var(--color-shadow);
+			}
+
+			body {
+				font-family: var(--font-family);
+				background: linear-gradient(135deg, var(--color-background) 0%, #f0f9f0 100%);
+				color: var(--color-text);
+				line-height: 1.6;
+				min-height: 100vh;
+			}
+
+			/* Header Styles */
+			.header {
+				background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+				color: white;
+				padding: 1.5rem 0;
+				box-shadow: var(--shadow-md);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+
+			.header-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 1rem;
+			}
+
+			.logo {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+
+			.seed-icon {
+				font-size: 2rem;
+				background: rgba(255, 255, 255, 0.2);
+				border-radius: 50%;
+				width: 4rem;
+				height: 4rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				backdrop-filter: blur(10px);
+			}
+
+			.logo h1 {
+				font-size: 1.75rem;
+				font-weight: 600;
+				margin: 0;
+			}
+
+			/* Step Indicator */
+			.step-indicator {
+				display: flex;
+				gap: 1rem;
+			}
+
+			.step {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.75rem;
+				border-radius: var(--border-radius-small);
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(10px);
+				transition: var(--transition);
+				min-width: 120px;
+			}
+
+			.step.active {
+				background: rgba(255, 255, 255, 0.2);
+				transform: scale(1.05);
+			}
+
+			.step.completed {
+				background: rgba(167, 201, 87, 0.3);
+			}
+
+			.step-number {
+				background: rgba(255, 255, 255, 0.3);
+				border-radius: 50%;
+				width: 2rem;
+				height: 2rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 600;
+				font-size: 0.875rem;
+			}
+
+			.step.active .step-number {
+				background: white;
+				color: var(--color-primary);
+			}
+
+			.step.completed .step-number {
+				background: var(--color-accent);
+				color: var(--color-primary-dark);
+			}
+
+			.step-label {
+				font-size: 0.75rem;
+				text-align: center;
+				font-weight: 500;
+			}
+
+			/* Main Container */
+			.main-container {
+				max-width: 800px;
+				margin: 2rem auto;
+				padding: 0 2rem;
+			}
+
+			.form-container {
+				background: var(--color-surface);
+				border-radius: var(--border-radius);
+				box-shadow: var(--shadow-lg);
+				overflow: hidden;
+				position: relative;
+			}
+
+			.warranty-form {
+				position: relative;
+			}
+
+			/* Form Steps */
+			.form-step {
+				padding: 2.5rem;
+				display: none;
+				animation: fadeIn 0.5s ease-in-out;
+			}
+
+			.form-step.active {
+				display: block;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.step-header {
+				margin-bottom: 2rem;
+				text-align: center;
+			}
+
+			.step-header h2 {
+				color: var(--color-primary);
+				margin-bottom: 0.75rem;
+				font-size: 1.875rem;
+				font-weight: 600;
+			}
+
+			.step-header p {
+				color: var(--color-text-secondary);
+				font-size: 1.125rem;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			/* Form Elements */
+			.form-section {
+				margin-bottom: 2rem;
+				padding: 1.5rem;
+				background: #f8fffe;
+				border-radius: var(--border-radius-small);
+				border: 1px solid var(--color-border);
+			}
+
+			.form-section h3 {
+				color: var(--color-primary);
+				margin-bottom: 1.25rem;
+				font-size: 1.25rem;
+				font-weight: 600;
+			}
+
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+
+			.form-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.5rem;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 500;
+				color: var(--color-text);
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			input[type="date"],
+			select,
+			textarea {
+				width: 100%;
+				padding: 0.875rem 1rem;
+				border: 2px solid var(--color-border);
+				border-radius: var(--border-radius-small);
+				font-size: 1rem;
+				transition: var(--transition);
+				background: white;
+				font-family: inherit;
+			}
+
+			input:focus,
+			select:focus,
+			textarea:focus {
+				outline: none;
+				border-color: var(--color-secondary);
+				box-shadow: 0 0 0 3px rgba(127, 176, 105, 0.1);
+			}
+
+			textarea {
+				resize: vertical;
+				min-height: 100px;
+			}
+
+			/* Terms Section */
+			.terms-section {
+				background: #f0f9f0;
+				border-radius: var(--border-radius-small);
+				padding: 1.5rem;
+				border: 1px solid var(--color-accent);
+			}
+
+			.terms-content h3 {
+				color: var(--color-primary);
+				margin-bottom: 1rem;
+				font-size: 1.25rem;
+			}
+
+			.terms-text {
+				background: white;
+				padding: 1.25rem;
+				border-radius: var(--border-radius-small);
+				border: 1px solid var(--color-border);
+				max-height: 300px;
+				overflow-y: auto;
+				margin-bottom: 1.5rem;
+			}
+
+			.terms-text p {
+				margin-bottom: 1rem;
+			}
+
+			.terms-text strong {
+				color: var(--color-primary);
+			}
+
+			/* Checkbox Styles */
+			.checkbox-group {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.checkbox-label {
+				display: flex;
+				align-items: flex-start;
+				gap: 0.75rem;
+				cursor: pointer;
+				font-size: 0.95rem;
+				line-height: 1.5;
+			}
+
+			.checkbox-label input[type="checkbox"] {
+				display: none;
+			}
+
+			.checkmark {
+				width: 1.25rem;
+				height: 1.25rem;
+				border: 2px solid var(--color-border);
+				border-radius: 4px;
+				background: white;
+				position: relative;
+				transition: var(--transition);
+				flex-shrink: 0;
+				margin-top: 0.125rem;
+			}
+
+			.checkbox-label input:checked + .checkmark {
+				background: var(--color-success);
+				border-color: var(--color-success);
+			}
+
+			.checkbox-label input:checked + .checkmark::after {
+				content: "✓";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: white;
+				font-size: 0.875rem;
+				font-weight: bold;
+			}
+
+			/* Upload Sections */
+			.upload-sections {
+				display: grid;
+				gap: 2rem;
+			}
+
+			.upload-section {
+				border: 1px solid var(--color-border);
+				border-radius: var(--border-radius-small);
+				overflow: hidden;
+				background: white;
+			}
+
+			.upload-header {
+				padding: 1.25rem;
+				background: var(--color-background);
+				border-bottom: 1px solid var(--color-border);
+			}
+
+			.upload-header h3 {
+				color: var(--color-primary);
+				margin-bottom: 0.5rem;
+				font-size: 1.125rem;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+
+			.upload-header p {
+				color: var(--color-text-secondary);
+				font-size: 0.925rem;
+			}
+
+			.upload-area {
+				position: relative;
+				padding: 1.5rem;
+			}
+
+			.upload-area input[type="file"] {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				cursor: pointer;
+				z-index: 2;
+			}
+
+			.upload-placeholder {
+				border: 2px dashed var(--color-border);
+				border-radius: var(--border-radius-small);
+				padding: 2rem;
+				text-align: center;
+				transition: var(--transition);
+				background: #fafbfc;
+			}
+
+			.upload-area:hover .upload-placeholder {
+				border-color: var(--color-secondary);
+				background: #f0f9f0;
+			}
+
+			.upload-area.has-file .upload-placeholder {
+				display: none;
+			}
+
+			.upload-icon {
+				font-size: 2rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.upload-placeholder p {
+				font-weight: 500;
+				margin-bottom: 0.5rem;
+				color: var(--color-text);
+			}
+
+			.upload-placeholder span {
+				font-size: 0.875rem;
+				color: var(--color-text-secondary);
+			}
+
+			.upload-preview {
+				display: none;
+				position: relative;
+			}
+
+			.upload-area.has-file .upload-preview {
+				display: block;
+			}
+
+			.preview-image {
+				width: 100%;
+				max-width: 300px;
+				height: 200px;
+				object-fit: cover;
+				border-radius: var(--border-radius-small);
+				border: 1px solid var(--color-border);
+			}
+
+			.file-info {
+				margin-top: 1rem;
+				padding: 0.75rem;
+				background: var(--color-background);
+				border-radius: var(--border-radius-small);
+				font-size: 0.875rem;
+			}
+
+			.file-name {
+				font-weight: 500;
+				color: var(--color-text);
+			}
+
+			.file-size {
+				color: var(--color-text-secondary);
+			}
+
+			.remove-file {
+				position: absolute;
+				top: 0.5rem;
+				right: 0.5rem;
+				background: var(--color-error);
+				color: white;
+				border: none;
+				border-radius: 50%;
+				width: 2rem;
+				height: 2rem;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1rem;
+				transition: var(--transition);
+			}
+
+			.remove-file:hover {
+				background: #d63031;
+			}
+
+			/* Summary Section */
+			.summary-section {
+				background: var(--color-background);
+				border-radius: var(--border-radius-small);
+				padding: 1.5rem;
+				margin-bottom: 2rem;
+				border: 1px solid var(--color-border);
+			}
+
+			.summary-section h3 {
+				color: var(--color-primary);
+				margin-bottom: 1.25rem;
+				font-size: 1.25rem;
+			}
+
+			.summary-content {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.summary-item {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0.75rem;
+				background: white;
+				border-radius: var(--border-radius-small);
+				border: 1px solid var(--color-border);
+			}
+
+			.summary-label {
+				font-weight: 500;
+				color: var(--color-text);
+			}
+
+			.summary-value {
+				color: var(--color-text-secondary);
+				font-weight: 400;
+			}
+
+			/* Warning Box */
+			.authenticity-section {
+				margin-bottom: 2rem;
+			}
+
+			.warning-box {
+				background: linear-gradient(135deg, #fff5f5 0%, #fed7e2 100%);
+				border: 2px solid var(--color-error);
+				border-radius: var(--border-radius);
+				padding: 1.5rem;
+				display: flex;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.warning-icon {
+				font-size: 1.5rem;
+				flex-shrink: 0;
+			}
+
+			.warning-content h4 {
+				color: var(--color-error);
+				margin-bottom: 0.75rem;
+				font-size: 1.125rem;
+			}
+
+			.warning-content p {
+				margin-bottom: 0.75rem;
+				color: var(--color-text);
+			}
+
+			.warning-content ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			.warning-content li {
+				margin-bottom: 0.5rem;
+				padding-left: 1.5rem;
+				position: relative;
+				color: var(--color-text);
+			}
+
+			.warning-content li::before {
+				content: "•";
+				position: absolute;
+				left: 0;
+				color: var(--color-error);
+				font-weight: bold;
+			}
+
+			/* Buttons */
+			.form-actions {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 1rem;
+				margin-top: 2rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--color-border);
+			}
+
+			.btn {
+				padding: 0.875rem 1.75rem;
+				border: none;
+				border-radius: var(--border-radius-small);
+				font-size: 1rem;
+				font-weight: 500;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				transition: var(--transition);
+				text-decoration: none;
+				font-family: inherit;
+				min-width: 120px;
+				justify-content: center;
+			}
+
+			.btn:disabled {
+				opacity: 0.6;
+				cursor: not-allowed;
+			}
+
+			.btn-primary {
+				background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+				color: white;
+				transition: all 0.3s ease;
+			}
+
+			.btn-primary:disabled {
+				background: #e2e8f0;
+				color: #a0aec0;
+				cursor: not-allowed;
+				transform: none;
+				box-shadow: none;
+			}
+
+			.btn-primary:hover:not(:disabled) {
+				background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+				transform: translateY(-2px);
+				box-shadow: var(--shadow-md);
+			}
+
+			.btn-primary.enabled {
+				background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+				cursor: pointer;
+			}
+
+			.btn-secondary {
+				background: var(--color-border);
+				color: var(--color-text);
+			}
+
+			.btn-secondary:hover:not(:disabled) {
+				background: #cbd5e0;
+				transform: translateY(-2px);
+			}
+
+			.btn-success {
+				background: linear-gradient(135deg, var(--color-success) 0%, #52b788 100%);
+				color: white;
+			}
+
+			.btn-success:hover:not(:disabled) {
+				background: linear-gradient(135deg, #588157 0%, var(--color-success) 100%);
+				transform: translateY(-2px);
+				box-shadow: var(--shadow-md);
+			}
+
+			.btn-icon {
+				font-size: 1.125rem;
+			}
+
+			/* Success Message */
+			.success-message {
+				padding: 3rem 2.5rem;
+				text-align: center;
+			}
+
+			.success-content {
+				max-width: 500px;
+				margin: 0 auto;
+			}
+
+			.success-icon {
+				font-size: 4rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.success-content h2 {
+				color: var(--color-success);
+				margin-bottom: 1rem;
+				font-size: 1.875rem;
+			}
+
+			.success-content p {
+				margin-bottom: 1rem;
+				color: var(--color-text-secondary);
+				line-height: 1.6;
+			}
+
+			#request-number {
+				font-weight: 600;
+				color: var(--color-primary);
+				font-family: monospace;
+				font-size: 1.1rem;
+			}
+
+			/* Country Flag Selection Styles */
+			.country-label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+				color: var(--color-text);
+				font-size: 1.1rem;
+			}
+
+			.country-subtitle {
+				color: var(--color-text-secondary);
+				font-size: 0.95rem;
+				margin-bottom: 1.5rem;
+				line-height: 1.4;
+			}
+
+			.country-flags {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.flag-option {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 1.25rem 0.75rem;
+				border: 2px solid var(--color-border);
+				border-radius: var(--border-radius);
+				background: white;
+				cursor: pointer;
+				transition: var(--transition);
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.flag-option::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(127, 176, 105, 0.1), transparent);
+				transition: left 0.5s;
+			}
+
+			.flag-option:hover {
+				border-color: var(--color-secondary);
+				transform: translateY(-2px);
+				box-shadow: var(--shadow-md);
+			}
+
+			.flag-option:hover::before {
+				left: 100%;
+			}
+
+			.flag-option.selected {
+				border-color: var(--color-success);
+				background: linear-gradient(135deg, #f0f9f0 0%, white 100%);
+				box-shadow: 0 0 0 3px rgba(106, 153, 78, 0.1);
+			}
+
+			.flag-circle {
+				width: 4rem;
+				height: 4rem;
+				border-radius: 50%;
+				background: var(--color-background);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 2px solid var(--color-border);
+				transition: var(--transition);
+				overflow: hidden;
+			}
+
+			.flag-option:hover .flag-circle {
+				border-color: var(--color-secondary);
+				transform: scale(1.05);
+			}
+
+			.flag-option.selected .flag-circle {
+				border-color: var(--color-success);
+				background: white;
+			}
+
+			.flag {
+				font-size: 2rem;
+				line-height: 1;
+			}
+
+			.country-name {
+				font-weight: 500;
+				color: var(--color-text);
+				font-size: 0.9rem;
+				transition: var(--transition);
+			}
+
+			.flag-option:hover .country-name {
+				color: var(--color-primary);
+			}
+
+			.flag-option.selected .country-name {
+				color: var(--color-success);
+				font-weight: 600;
+			}
+
+			.selected-country {
+				margin-top: 1rem;
+				padding: 1rem;
+				background: var(--color-background);
+				border-radius: var(--border-radius-small);
+				border: 1px solid var(--color-accent);
+				display: none;
+				align-items: center;
+				gap: 0.75rem;
+			}
+
+			.selected-country.show {
+				display: flex;
+			}
+
+			.selected-country .flag {
+				font-size: 1.5rem;
+			}
+
+			.selected-country .text {
+				color: var(--color-primary);
+				font-weight: 500;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.header-content {
+					flex-direction: column;
+					text-align: center;
+				}
+
+				.step-indicator {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
+				.step {
+					min-width: 100px;
+				}
+
+				.step-label {
+					font-size: 0.7rem;
+				}
+
+				.main-container {
+					padding: 0 1rem;
+					margin: 1rem auto;
+				}
+
+				.form-step {
+					padding: 1.5rem;
+				}
+
+				.form-row {
+					grid-template-columns: 1fr;
+				}
+
+				.form-actions {
+					flex-direction: column-reverse;
+				}
+
+				.form-actions .btn {
+					width: 100%;
+				}
+
+				.logo h1 {
+					font-size: 1.5rem;
+				}
+
+				.step-header h2 {
+					font-size: 1.5rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.step-indicator {
+					gap: 0.5rem;
+				}
+
+				.step {
+					min-width: 80px;
+					padding: 0.5rem;
+				}
+
+				.step-number {
+					width: 1.5rem;
+					height: 1.5rem;
+					font-size: 0.75rem;
+				}
+
+				.step-label {
+					font-size: 0.65rem;
+				}
+
+				.country-flags {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 0.5rem;
+				}
+
+				.flag-option {
+					padding: 0.75rem 0.25rem;
+				}
+
+				.flag-circle {
+					width: 3rem;
+					height: 3rem;
+				}
+
+				.flag {
+					font-size: 1.5rem;
+				}
+
+				.country-name {
+					font-size: 0.8rem;
+				}
+			}
+
+			/* Loading States */
+			.loading {
+				position: relative;
+				overflow: hidden;
+			}
+
+			.loading::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+				animation: loading 1.5s infinite;
+			}
+
+			@keyframes loading {
+				0% { left: -100%; }
+				100% { left: 100%; }
+			}
+
+			@media (max-width: 768px) {
+				.country-flags {
+					grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+					gap: 0.75rem;
+				}
+
+				.flag-option {
+					padding: 1rem 0.5rem;
+				}
+
+				.flag-circle {
+					width: 3.5rem;
+					height: 3.5rem;
+				}
+
+				.flag {
+					font-size: 1.75rem;
+				}
+			}
+		</style>
+
+		<script>
+			// Form navigation and validation
+			let currentStep = 1;
+			const totalSteps = 4;
+
+			function showStep(step) {
+				// Hide all steps
+				document.querySelectorAll('.form-step').forEach(stepEl => {
+					stepEl.classList.remove('active');
+				});
+				
+				// Show target step
+				document.getElementById(`step-${step}`).classList.add('active');
+				
+				// Update step indicator
+				document.querySelectorAll('.step').forEach((stepEl, index) => {
+					stepEl.classList.remove('active', 'completed');
+					if (index + 1 === step) {
+						stepEl.classList.add('active');
+					} else if (index + 1 < step) {
+						stepEl.classList.add('completed');
+					}
+				});
+				
+				currentStep = step;
+				
+				// Scroll to top
+				document.querySelector('.form-container').scrollIntoView({ 
+					behavior: 'smooth', 
+					block: 'start' 
+				});
+			}
+
+			function validateStep(step) {
+				const stepElement = document.getElementById(`step-${step}`);
+				const requiredFields = stepElement.querySelectorAll('[required]');
+				let isValid = true;
+
+				requiredFields.forEach(field => {
+					if (field.type === 'checkbox') {
+						if (!field.checked) {
+							isValid = false;
+							field.closest('.checkbox-label').style.color = 'var(--color-error)';
+						} else {
+							field.closest('.checkbox-label').style.color = '';
+						}
+					} else if (field.type === 'file') {
+						if (!field.files.length) {
+							isValid = false;
+							field.closest('.upload-area').style.borderColor = 'var(--color-error)';
+						} else {
+							field.closest('.upload-area').style.borderColor = '';
+						}
+					} else {
+						if (!field.value.trim()) {
+							isValid = false;
+							field.style.borderColor = 'var(--color-error)';
+						} else {
+							field.style.borderColor = '';
+						}
+					}
+				});
+
+				return isValid;
+			}
+
+			function nextStep(step) {
+				if (validateStep(step)) {
+					if (step < totalSteps) {
+						showStep(step + 1);
+						if (step + 1 === 4) {
+							generateSummary();
+						}
+					}
+				} else {
+					alert('Por favor, complete todos los campos requeridos antes de continuar.');
+				}
+			}
+
+			function prevStep(step) {
+				if (step > 1) {
+					showStep(step - 1);
+				}
+			}
+
+			function generateSummary() {
+				const form = document.getElementById('warranty-form');
+				const formData = new FormData(form);
+				const summaryContainer = document.getElementById('form-summary');
+
+				// Get country name from selected flag option
+				const selectedCountry = document.querySelector('.flag-option.selected');
+				const countryName = selectedCountry ? selectedCountry.querySelector('.country-name').textContent : form.country.value;
+				const countryFlag = selectedCountry ? selectedCountry.querySelector('.flag').textContent : '';
+
+				const summaryData = [
+					{ label: 'País', value: `${countryFlag} ${countryName}` },
+					{ label: 'Nombre completo', value: `${formData.get('firstName')} ${formData.get('lastName')}` },
+					{ label: 'Email', value: formData.get('email') },
+					{ label: 'Teléfono', value: formData.get('phone') },
+					{ label: 'Variedad de semilla', value: form.seedVariety.options[form.seedVariety.selectedIndex].text },
+					{ label: 'Cantidad', value: form.quantity.options[form.quantity.selectedIndex].text },
+					{ label: 'Fecha de compra', value: formData.get('purchaseDate') },
+					{ label: 'Fecha de siembra', value: formData.get('plantingDate') },
+					{ label: 'Imágenes adjuntas', value: '4 archivos subidos' }
+				];
+
+				summaryContainer.innerHTML = summaryData.map(item => `
+					<div class="summary-item">
+						<span class="summary-label">${item.label}:</span>
+						<span class="summary-value">${item.value}</span>
+					</div>
+				`).join('');
+			}
+
+			// File upload handling
+			function initializeFileUploads() {
+				const uploadAreas = document.querySelectorAll('.upload-area');
+				
+				uploadAreas.forEach(area => {
+					const input = area.querySelector('input[type="file"]');
+					const preview = area.querySelector('.upload-preview');
+					
+					input.addEventListener('change', function(e) {
+						const file = e.target.files[0];
+						if (file) {
+							handleFileUpload(file, area, preview);
+						}
+					});
+				});
+			}
+
+			function handleFileUpload(file, area, preview) {
+				// Validate file size (max 5MB)
+				if (file.size > 5 * 1024 * 1024) {
+					alert('El archivo es demasiado grande. Tamaño máximo: 5MB');
+					return;
+				}
+
+				// Validate file type
+				if (!file.type.startsWith('image/')) {
+					alert('Solo se permiten archivos de imagen');
+					return;
+				}
+
+				area.classList.add('has-file');
+				
+				// Create preview
+				const reader = new FileReader();
+				reader.onload = function(e) {
+					preview.innerHTML = `
+						<div style="position: relative;">
+							<img src="${e.target.result}" alt="Preview" class="preview-image">
+							<button type="button" class="remove-file" data-action="remove">×</button>
+							<div class="file-info">
+								<div class="file-name">${file.name}</div>
+								<div class="file-size">${(file.size / 1024 / 1024).toFixed(2)} MB</div>
+							</div>
+						</div>
+					`;
+				};
+				reader.readAsDataURL(file);
+			}
+
+			function removeFile(button) {
+				const area = button.closest('.upload-area');
+				const input = area.querySelector('input[type="file"]');
+				const preview = area.querySelector('.upload-preview');
+				
+				input.value = '';
+				preview.innerHTML = '';
+				area.classList.remove('has-file');
+			}
+
+			// Form submission
+			function handleFormSubmit(e) {
+				e.preventDefault();
+				
+				if (!validateStep(4)) {
+					alert('Por favor, complete todos los campos requeridos.');
+					return;
+				}
+
+				// Show loading state
+				const submitBtn = document.getElementById('submit-btn');
+				const originalText = submitBtn.innerHTML;
+				submitBtn.innerHTML = '<span class="loading">Enviando...</span>';
+				submitBtn.disabled = true;
+
+				// Simulate form submission
+				setTimeout(() => {
+					showSuccessMessage();
+				}, 2000);
+			}
+
+			function showSuccessMessage() {
+				document.querySelector('.warranty-form').style.display = 'none';
+				document.getElementById('success-message').style.display = 'block';
+				document.getElementById('request-number').textContent = generateRequestNumber();
+			}
+
+			function generateRequestNumber() {
+				const timestamp = Date.now().toString();
+				const random = Math.random().toString(36).substr(2, 5).toUpperCase();
+				return `BSF-${timestamp.slice(-6)}-${random}`;
+			}
+
+			function resetForm() {
+				document.getElementById('warranty-form').reset();
+				document.querySelectorAll('.upload-area').forEach(area => {
+					area.classList.remove('has-file');
+					area.querySelector('.upload-preview').innerHTML = '';
+				});
+				
+				// Reset country selection
+				document.querySelectorAll('.flag-option').forEach(option => {
+					option.classList.remove('selected');
+				});
+				document.getElementById('selected-country').classList.remove('show');
+				document.getElementById('country').value = '';
+				
+				showStep(1);
+				document.querySelector('.warranty-form').style.display = 'block';
+				document.getElementById('success-message').style.display = 'none';
+				updateContinueButton(); // Reset button state
+			}
+
+			// Country selection handling
+			function selectCountry(countryCode, countryName) {
+				console.log('=== selectCountry called ===', { countryCode, countryName });
+				
+				// Remove previous selections
+				document.querySelectorAll('.flag-option').forEach(option => {
+					option.classList.remove('selected');
+				});
+				
+				// Add selection to clicked option
+				const selectedOption = document.querySelector(`[data-country="${countryCode}"]`);
+				selectedOption.classList.add('selected');
+				
+				// Update hidden input
+				const countryInput = document.getElementById('country');
+				countryInput.value = countryCode;
+				console.log('Country input value set to:', countryInput.value);
+				
+				// Show selected country confirmation
+				const selectedCountryDiv = document.getElementById('selected-country');
+				const flagEmoji = selectedOption.querySelector('.flag').textContent;
+				selectedCountryDiv.innerHTML = `
+					<span class="flag">${flagEmoji}</span>
+					<span class="text">País seleccionado: ${countryName}</span>
+				`;
+				selectedCountryDiv.classList.add('show');
+				
+				// Enable continue button if terms are also accepted
+				console.log('Calling updateContinueButton from selectCountry');
+				updateContinueButton();
+			}
+
+			function updateContinueButton() {
+				console.log('=== updateContinueButton called ===');
+				
+				const countryInput = document.getElementById('country');
+				const termsInput = document.getElementById('accept-terms');
+				const privacyInput = document.getElementById('accept-privacy');
+				const button = document.querySelector('#step-1 .btn-primary');
+				
+				console.log('Elements found:', {
+					countryInput: !!countryInput,
+					termsInput: !!termsInput, 
+					privacyInput: !!privacyInput,
+					button: !!button
+				});
+				
+				if (!countryInput || !termsInput || !privacyInput || !button) {
+					console.error('Some elements not found!');
+					return;
+				}
+				
+				const country = countryInput.value;
+				const terms = termsInput.checked;
+				const privacy = privacyInput.checked;
+				
+				console.log('Values:', { country, terms, privacy });
+				
+				const isValid = country && terms && privacy;
+				console.log('Is valid:', isValid);
+				
+				button.disabled = !isValid;
+				console.log('Button disabled set to:', !isValid);
+				
+				// Visual feedback
+				if (isValid) {
+					button.classList.add('enabled');
+					console.log('Added enabled class');
+				} else {
+					button.classList.remove('enabled');
+					console.log('Removed enabled class');
+				}
+			}
+
+			// Initialize everything when page loads
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('DOM Content Loaded');
+				
+				initializeFileUploads();
+				document.getElementById('warranty-form').addEventListener('submit', handleFormSubmit);
+				showStep(1);
+				
+				// Initial button state - ensure it's disabled at start
+				const continueBtn = document.querySelector('#step-1 .btn-primary');
+				console.log('Continue button found:', !!continueBtn);
+				if (continueBtn) {
+					continueBtn.disabled = true;
+					console.log('Button disabled set to true initially');
+				}
+				
+				// Set up event listeners for country flags
+				document.querySelectorAll('.flag-option').forEach(option => {
+					option.addEventListener('click', function() {
+						const countryCode = this.getAttribute('data-country');
+						const countryName = this.querySelector('.country-name').textContent;
+						console.log('Flag clicked:', { countryCode, countryName });
+						selectCountry(countryCode, countryName);
+					});
+				});
+				
+				// Set up event listeners for checkboxes
+				const termsCheckbox = document.getElementById('accept-terms');
+				const privacyCheckbox = document.getElementById('accept-privacy');
+				
+				if (termsCheckbox) {
+					termsCheckbox.addEventListener('change', function() {
+						console.log('Terms checkbox changed:', this.checked);
+						updateContinueButton();
+					});
+				}
+				
+				if (privacyCheckbox) {
+					privacyCheckbox.addEventListener('change', function() {
+						console.log('Privacy checkbox changed:', this.checked);
+						updateContinueButton();
+					});
+				}
+				
+				// Set up event listeners for navigation buttons
+				document.querySelectorAll('.continue-btn, .next-btn').forEach(btn => {
+					btn.addEventListener('click', function() {
+						const step = parseInt(this.getAttribute('data-step'));
+						console.log('Next button clicked for step:', step);
+						nextStep(step);
+					});
+				});
+				
+				document.querySelectorAll('.prev-btn').forEach(btn => {
+					btn.addEventListener('click', function() {
+						const step = parseInt(this.getAttribute('data-step'));
+						console.log('Prev button clicked for step:', step);
+						prevStep(step);
+					});
+				});
+				
+				// Set up event listeners for reset button
+				document.addEventListener('click', function(e) {
+					if (e.target.classList.contains('reset-form-btn')) {
+						resetForm();
+					}
+					if (e.target.classList.contains('remove-file')) {
+						removeFile(e.target);
+					}
+				});
+				
+				// Set up initial state check
+				setTimeout(() => {
+					console.log('Running initial updateContinueButton check');
+					updateContinueButton();
+				}, 100);
+			});
+		</script>
 	</body>
 </html>
