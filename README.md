@@ -1,11 +1,11 @@
 # Formulario de Garantía de Germinación de Semillas 🌱
 
-Un formulario moderno de 4 pasos desarrollado con Astro para gestionar solicitudes de garantía de germinación de semillas con una interfaz intuitiva y temática de naturaleza.
+Un formulario moderno de 4 pasos desarrollado con Astro para gestionar solicitudes de garantía de germinación de semillas con una interfaz intuitiva.
 
 ## ✨ Características
 
 - **Formulario de 4 pasos interactivo**:
-  1. **Selección de país con banderas** - Interfaz visual intuitiva con banderas de los 5 países principales (México 🇲🇽, Argentina 🇦🇷, Brasil 🇧🇷, Colombia 🇨🇴, España 🇪🇸)
+  1. **Selección de país con banderas** - Interfaz visual intuitiva con banderas
   2. Datos de contacto y selección de variedad de semillas
   3. Carga de imágenes (temperatura, humedad, germinación, código QR)
   4. Confirmación final y declaración de autenticidad
@@ -53,38 +53,55 @@ npm run preview
 
 ## 🎨 Características de Diseño
 
-- **Paleta de colores**: Tonos verdes y naturales
+- **Paleta de colores**: 
+  - Primario: `#2d5a2d` (Verde oscuro)
+  - Secundario: `#7fb069` (Verde medio)
+  - Acento: `#a7c957` (Verde claro)
+  - Éxito: `#6a994e` (Verde éxito)
+  - Error: `#e76f51` (Naranja/rojo)
+  - Fondo: `#f8fffe` (Blanco verdoso)
 - **Tipografía**: Inter font para mejor legibilidad
 - **Iconos**: Emojis temáticos para mejor UX
 - **Animaciones**: Transiciones suaves y microinteracciones
-- **Gradientes**: Efectos visuales modernos
+- **Gradientes**: Efectos visuales modernos con tonos verdes
 
 ## 📝 Funcionalidades del Formulario
 
 ### Paso 1: País y Términos
 - **Selección visual de país** con banderas interactivas de 5 países principales:
-  - 🇲🇽 México
-  - 🇦🇷 Argentina  
+  - �� Chile
+  - 🇺🇾 Uruguay  
+  - 🇦🇷 Argentina
   - 🇧🇷 Brasil
-  - 🇨🇴 Colombia
-  - 🇪🇸 España
+  - 🇪� Europa
 - Términos y condiciones de garantía
 - Política de privacidad
 - Validación en tiempo real para habilitar botón "Continuar"
 
 ### Paso 2: Datos y Variedad
 - Información de contacto completa
-- Selección de variedad de semilla (20+ opciones)
-- Cantidades disponibles (x2, x4, x6, x8, x12)
+- Selección de variedad de semilla (10 opciones disponibles):
+  - All Star Usa Automix
+  - Dealer Deal XXL Automix
+  - Dream Team Feminized Mix
+  - Psycho XXL Automix
+  - Red Line Automix
+  - Gorila Familia
+  - Old School Fem Mix
+  - Tutti Fruty Automix
+  - Fast and Furious Mix
+  - High Voltage Fem Mix
+- Cantidades disponibles (x2, x4, x7, x8, x12, x16)
 - Fechas de compra y siembra
 - Descripción del problema
+- Información adicional sobre conservación y técnicas de germinación
 
 ### Paso 3: Documentación
-- Carga de imagen de temperatura
-- Carga de imagen de humedad
-- Carga de imagen de germinación
-- Carga de imagen del código QR
-- Previsualización y validación de archivos
+- Carga de imagen de condiciones de temperatura y humedad
+- Carga de imagen del proceso de germinación
+- Carga de imagen del código QR del envase
+- Carga de imagen de boleta o comprobante de compra
+- Previsualización y validación de archivos (máximo 5MB por imagen)
 
 ### Paso 4: Confirmación
 - Resumen de la solicitud
@@ -145,13 +162,12 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 📞 Soporte
 
-Para soporte o preguntas sobre el formulario de garantía, contacta:
-- Email: soporte@ejemplo.com
-- Teléfono: +1-234-567-8900
+Para soporte o preguntas sobre el formulario de garantía, contactanos:
+
 
 ---
 
-Desarrollado con ❤️ usando Astro
+Desarrollado con ❤️ para BSF Seeds usando Astro
 
 ## 🚀 Project Structure
 
@@ -188,3 +204,145 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+# Formulario de Garantía de Germinación BSF - Integración con Google Forms/Sheets
+
+Este proyecto es un formulario multipaso desarrollado en Astro para la gestión de garantías de germinación de semillas. Aquí aprenderás cómo conectar este formulario con **Google Forms** para que todas las respuestas se almacenen automáticamente en una hoja de cálculo de **Google Sheets**.
+
+---
+
+## ¿Por qué Google Forms/Sheets?
+
+- **Google Forms** permite recibir respuestas vía HTTP POST y las almacena automáticamente en una hoja de cálculo de **Google Sheets**.
+- Es una solución gratuita, robusta y sin necesidad de backend propio.
+- Permite visualizar, filtrar y exportar respuestas fácilmente.
+
+---
+
+## Pasos para la integración
+
+### 1. Crear el Google Form
+
+1. Ve a [Google Forms](https://forms.google.com) y crea un formulario nuevo.
+2. Crea los campos del formulario **en el mismo orden y tipo** que los de tu formulario Astro. Ejemplo:
+   - País
+   - Nombre completo
+   - Email
+   - Teléfono
+   - Dirección
+   - Variedad de semilla
+   - Cantidad
+   - Fecha de compra
+   - Fecha de germinación
+   - Descripción del problema
+   - Tienda donde compraste
+   - Comentarios adicionales
+   - Variedades del mix que no germinaron
+   - Conservación de semillas
+   - Técnica de germinación
+   - Tipo de fallo
+   - Código QR
+   - Imágenes adjuntas (puedes pedir links o usar un campo de texto para URLs de imágenes si lo deseas)
+3. **Importante:** Cada campo tendrá un "entry ID" único (ejemplo: `entry.123456789`). Lo necesitarás para el siguiente paso.
+
+---
+
+### 2. Obtener el endpoint de Google Forms
+
+1. Haz clic en "Enviar" en la parte superior derecha de Google Forms.
+2. Selecciona el icono de enlace (`< >`) para obtener el enlace del formulario.
+3. Abre el formulario en una ventana de incógnito.
+4. Haz clic derecho en el formulario y selecciona "Inspeccionar" para abrir las herramientas de desarrollador.
+5. Rellena el formulario con datos de prueba y haz clic en "Enviar".
+6. En la pestaña "Network", busca la solicitud de tipo `formResponse` (normalmente es un POST a una URL como `https://docs.google.com/forms/d/e/XXXXXXXXXXXX/formResponse`).
+7. Copia esa URL: **ese es tu endpoint de Google Forms**.
+
+---
+
+### 3. Obtener los "entry IDs" de cada campo
+
+1. En la pestaña "Network", selecciona la solicitud `formResponse`.
+2. En el "Payload" verás algo como:
+   ```
+   entry.123456789=valor1&entry.987654321=valor2
+   ```
+3. Cada campo de tu formulario tiene un `entry.xxxxxxxx` único. Asócialos con los campos de tu formulario Astro.
+
+---
+
+### 4. Modificar tu formulario Astro para enviar los datos
+
+En tu archivo `index.astro`, modifica la función de envío para hacer un POST a Google Forms:
+
+```javascript
+// ...existing code...
+function handleFormSubmit(e) {
+    e.preventDefault();
+
+    if (!validateStep(4)) {
+        alert('Por favor, complete todos los campos requeridos.');
+        return;
+    }
+
+    const form = document.getElementById('warranty-form');
+    const formData = new FormData(form);
+
+    // Mapea los campos de tu formulario Astro a los entry IDs de Google Forms
+    const googleFormData = new FormData();
+    googleFormData.append('entry.123456789', formData.get('country')); // País
+    googleFormData.append('entry.987654321', formData.get('firstName') + ' ' + formData.get('lastName')); // Nombre completo
+    // ...agrega todos los campos necesarios...
+
+    fetch('https://docs.google.com/forms/d/e/TU_ID_DE_FORMULARIO/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: googleFormData
+    }).then(() => {
+        showSuccessMessage();
+    }).catch(() => {
+        alert('Hubo un error al enviar el formulario. Intente nuevamente.');
+    });
+}
+```
+
+**Notas:**
+- Reemplaza cada `entry.XXXXXXXX` por el ID real de tu Google Form.
+- El método `mode: 'no-cors'` es necesario porque Google Forms no permite CORS, pero igual recibe los datos.
+- No podrás obtener una respuesta de éxito/fallo real, pero los datos llegarán a tu Google Sheets.
+
+---
+
+### 5. Consideraciones para archivos/imágenes
+
+Google Forms **no acepta archivos directamente** vía API. Opciones:
+- Pide a los usuarios subir imágenes a Google Drive, Dropbox, etc. y pegar el enlace en un campo de texto.
+- O usa un backend propio para manejar archivos y solo envía los links a Google Forms.
+
+---
+
+### 6. Ver las respuestas en Google Sheets
+
+1. En Google Forms, haz clic en "Respuestas".
+2. Haz clic en el icono de Google Sheets para crear/ver la hoja de respuestas.
+3. Todas las respuestas enviadas desde tu formulario Astro aparecerán allí.
+
+---
+
+## Resumen de pasos técnicos
+
+1. Crea el Google Form y obtén los entry IDs.
+2. Modifica tu función de envío en Astro para hacer POST a Google Forms.
+3. Mapea cada campo de tu formulario Astro al entry ID correspondiente.
+4. (Opcional) Ajusta la gestión de imágenes para enviar solo enlaces.
+5. Verifica que las respuestas lleguen a Google Sheets.
+
+---
+
+## Recursos útiles
+
+
+- [Google Forms API Docs (no oficial)](https://github.com/dwyl/learn-to-send-email-via-google-form)
+
+---
+
+¿Dudas? Puedes consultar la documentación oficial de Google Forms o solicitar implementación a Brava Digital.
