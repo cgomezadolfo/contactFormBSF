@@ -2,6 +2,8 @@
 
 Un formulario moderno de 4 pasos desarrollado con Astro para gestionar solicitudes de garantía de germinación de semillas con una interfaz intuitiva.
 
+> **Desarrollado por [Brava Digital](https://bravadigital.cl)** - Expertos en desarrollo web y Marketing digital.
+
 ## ✨ Características
 
 - **Formulario de 4 pasos interactivo**:
@@ -162,12 +164,17 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 📞 Soporte
 
-Para soporte o preguntas sobre el formulario de garantía, contactanos:
+Para soporte o preguntas sobre el formulario de garantía, contacta a:
+
+- **BSF Seeds**: Para consultas sobre garantías de germinación
+- **[Brava Digital](https://bravadigital.cl)**: Para soporte técnico y desarrollo web personalizado
 
 
 ---
 
-Desarrollado con ❤️ para BSF Seeds usando Astro
+Desarrollado con ❤️ por **[Brava Digital](https://bravadigital.cl)** para BSF Seeds usando Astro
+
+*¿Necesitas un formulario personalizado o desarrollo web? Contacta a [Brava Digital](https://bravadigital.cl)*
 
 ## 🚀 Project Structure
 
@@ -345,4 +352,4 @@ Google Forms **no acepta archivos directamente** vía API. Opciones:
 
 ---
 
-¿Dudas? Puedes consultar la documentación oficial de Google Forms o solicitar implementación a Brava Digital.
+¿Dudas? Puedes consultar la documentación oficial de Google Forms o solicitar implementación a **[Brava Digital](https://bravadigital.cl)**.
