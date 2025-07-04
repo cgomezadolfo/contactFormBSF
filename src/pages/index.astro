@@ -5,7 +5,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="./img/intro_logo.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Formulario de Garantía - Germinación de Semillas</title>
@@ -19,7 +19,7 @@
 			<header class="header">
 				<div class="header-content">
 					<div class="logo">
-						<div class="seed-icon">🌱</div>
+						<img src="/img/logo-1654731826.jpg" alt="Logo" class="seed-icon logo-img"> 
 						<h1>Garantía de Germinación</h1>
 					</div>
 					<div class="step-indicator">
@@ -60,39 +60,39 @@
 								<p class="country-subtitle">Seleccione el país donde se encuentra ubicado para procesar su garantía</p>
 								
 								<div class="country-flags">
-									<div class="flag-option" data-country="MX">
+									<div class="flag-option" data-country="CL">
 										<div class="flag-circle">
-											<span class="flag">🇲🇽</span>
+											<img src="/flags/chile.svg" alt="Chile" class="flag-img">
 										</div>
-										<span class="country-name">México</span>
+										<span class="country-name">Chile</span>
+									</div>
+									
+									<div class="flag-option" data-country="UY">
+										<div class="flag-circle">
+											<img src="/flags/uruguay.svg" alt="Uruguay" class="flag-img">
+										</div>
+										<span class="country-name">Uruguay</span>
 									</div>
 									
 									<div class="flag-option" data-country="AR">
 										<div class="flag-circle">
-											<span class="flag">🇦🇷</span>
+											<img src="/flags/argentina.svg" alt="Argentina" class="flag-img">
 										</div>
 										<span class="country-name">Argentina</span>
 									</div>
 									
 									<div class="flag-option" data-country="BR">
 										<div class="flag-circle">
-											<span class="flag">🇧🇷</span>
+											<img src="/flags/brasil.svg" alt="Brasil" class="flag-img">
 										</div>
 										<span class="country-name">Brasil</span>
 									</div>
 									
-									<div class="flag-option" data-country="CO">
+									<div class="flag-option" data-country="EU">
 										<div class="flag-circle">
-											<span class="flag">🇨🇴</span>
+											<img src="/flags/europa.svg" alt="Europa" class="flag-img">
 										</div>
-										<span class="country-name">Colombia</span>
-									</div>
-									
-									<div class="flag-option" data-country="ES">
-										<div class="flag-circle">
-											<span class="flag">🇪🇸</span>
-										</div>
-										<span class="country-name">España</span>
+										<span class="country-name">Europa</span>
 									</div>
 								</div>
 								
@@ -104,11 +104,14 @@
 								<div class="terms-content">
 									<h3>Términos y Condiciones de Garantía</h3>
 									<div class="terms-text">
-										<p><strong>1. Alcance de la Garantía:</strong> Esta garantía cubre exclusivamente problemas de germinación de las semillas bajo condiciones adecuadas de cultivo.</p>
-										<p><strong>2. Condiciones Requeridas:</strong> Las semillas deben ser plantadas siguiendo las instrucciones del empaque, en condiciones de temperatura y humedad apropiadas.</p>
-										<p><strong>3. Documentación:</strong> Se requiere evidencia fotográfica de las condiciones de cultivo, proceso de germinación y código QR del empaque original.</p>
-										<p><strong>4. Plazo:</strong> La solicitud de garantía debe presentarse dentro de los 30 días posteriores al periodo esperado de germinación.</p>
-										<p><strong>5. Resolución:</strong> En caso de fallo comprobado, ofrecemos reemplazo del producto o reembolso según corresponda.</p>
+										<p><strong>Mediante el siguiente test estarás formalizando tu solicitud de garantía de germinación.</br>
+										Es importante que cada pregunta la respondas a conciencia y con las especificaciones solicitadas.</strong> </br>Para hacer valer tu garantía deberás cumplir con los siguientes puntos o de lo contrario tu solicitud automáticamente será rechazada</p>
+										<p><strong>1. Plazo:</strong> Que la compra no haya sido en un plazo mayor a 90 días.</p>
+										<p><strong>2. Condiciones Requeridas:</strong> Que la tasa de germinación sea SUPERIOR al 65% (1 de 2 – 2 de 4 – 3 de 7 – 4 de 12) de las semillas del blíster</p>
+										<p><strong>3. Documentación:</strong> Se requiere evidencia fotográfica de las condiciones de cultivo, proceso de germinación, código QR del empaque original y su comprobante de compra en un vendedor autorizado.</p>
+										<p><strong>4. Procesamiento:</strong> Nuestro compromiso es responder a tu solicitud (si cumple con los puntos mencionados) en un plazo no superior a las 72 horas . En caso de requerir ayuda puedes escribirnos a contacto@bsfseeds.com .</p>
+										<p><strong>5. IMPORTANTE:</strong> La garantía de nuestros productos está sujeta al cumplimiento de los puntos anteriores y el respaldo que acredite la conservación adecuada antes y después de la germinación de las semillas.</p>
+										<p><strong>6. ARGENTINA**:</strong> En el caso de las garantías de Argentina, el cliente se hace responsable del pago del envío de su garantía.</p>
 									</div>
 								</div>
 								
@@ -179,26 +182,16 @@
 										<label for="seedVariety">Variedad de Semilla</label>
 										<select id="seedVariety" name="seedVariety" required>
 											<option value="">Seleccione la variedad</option>
-											<option value="tomato-cherry">Tomate Cherry</option>
-											<option value="tomato-beefsteak">Tomate Beefsteak</option>
-											<option value="lettuce-iceberg">Lechuga Iceberg</option>
-											<option value="lettuce-romaine">Lechuga Romana</option>
-											<option value="pepper-bell">Pimiento Morrón</option>
-											<option value="pepper-hot">Pimiento Picante</option>
-											<option value="carrot-nantes">Zanahoria Nantes</option>
-											<option value="radish-cherry">Rábano Cherry Belle</option>
-											<option value="spinach-bloomsdale">Espinaca Bloomsdale</option>
-											<option value="basil-sweet">Albahaca Dulce</option>
-											<option value="cilantro">Cilantro</option>
-											<option value="parsley-flat">Perejil Liso</option>
-											<option value="cucumber-straight">Pepino Recto</option>
-											<option value="zucchini-green">Calabacín Verde</option>
-											<option value="bean-green">Frijol Verde</option>
-											<option value="pea-garden">Guisante de Jardín</option>
-											<option value="corn-sweet">Maíz Dulce</option>
-											<option value="sunflower-mammoth">Girasol Mammoth</option>
-											<option value="marigold-french">Caléndula Francesa</option>
-											<option value="petunia-grandiflora">Petunia Grandiflora</option>
+											<option value="tomato-cherry">All Star Usa Automix</option>
+											<option value="tomato-beefsteak">Dealer Deal XXL Automix</option>
+											<option value="lettuce-iceberg">Dream Team Feminized Mix</option>
+											<option value="lettuce-romaine">Psycho XXL Automix</option>
+											<option value="pepper-bell">Red Line Automix</option>
+											<option value="pepper-hot">Gorila Familia</option>
+											<option value="carrot-nantes">Old Sckool Fem Mix</option>
+											<option value="radish-cherry">Tutti Fruty Automix</option>
+											<option value="spinach-bloomsdale">Fast and Furious Mix</option>
+											<option value="basil-sweet">High Voltage Fem Mix</option>
 										</select>
 									</div>
 									<div class="form-group">
@@ -207,9 +200,10 @@
 											<option value="">Seleccione cantidad</option>
 											<option value="2">x2 semillas</option>
 											<option value="4">x4 semillas</option>
-											<option value="6">x6 semillas</option>
+											<option value="6">x7 semillas</option>
 											<option value="8">x8 semillas</option>
 											<option value="12">x12 semillas</option>
+											<option value="12">x16 semillas</option>
 										</select>
 									</div>
 								</div>
@@ -228,6 +222,52 @@
 								<div class="form-group">
 									<label for="issueDescription">Descripción del Problema</label>
 									<textarea id="issueDescription" name="issueDescription" rows="4" required placeholder="Describa detalladamente el problema de germinación observado"></textarea>
+								</div>
+
+								<div class="form-group">
+									<label for="store">Tienda donde compraste las semillas</label>
+									<input type="text" id="store" name="store" required placeholder="Nombre de la tienda o sitio web">
+								</div>
+
+								<div class="form-group">
+									<label for="problemDescription">Descríbenos con tus palabras el problema que tuviste o cuéntanos si tienes alguna duda en relación a la garantía</label>
+									<textarea id="problemDescription" name="problemDescription" rows="4" placeholder="Describe tu experiencia y cualquier duda que tengas"></textarea>
+								</div>
+
+								<div class="form-group">
+									<label for="mixVarieties">En el caso de Mixes ¿Cuál o cuales variedades no germinaron?</label>
+									<textarea id="mixVarieties" name="mixVarieties" rows="3" placeholder="Indica qué variedades específicas del mix no germinaron (opcional)"></textarea>
+								</div>
+
+								<div class="form-group">
+									<label for="seedStorage">¿Cómo conservaste las semillas antes de su germinación? <span class="required">*</span></label>
+									<textarea id="seedStorage" name="seedStorage" rows="3" required placeholder="Describe las condiciones de almacenamiento (temperatura, humedad, lugar, etc.)"></textarea>
+								</div>
+
+								<div class="form-group">
+									<label for="germinationTechnique">¿Cuál técnica de germinación usaste? <span class="required">*</span></label>
+									<input type="text" id="germinationTechnique" name="germinationTechnique" required placeholder="Ej: Papel húmedo, algodón húmedo, siembra directa en tierra, etc.">
+								</div>
+
+								<div class="form-group">
+									<label for="failureType">Las semillas que fallaron <span class="required">*</span></label>
+									<select id="failureType" name="failureType" required>
+										<option value="">Seleccione el tipo de fallo</option>
+										<option value="no-abrieron">No pudieron abrirse totalmente</option>
+										<option value="abrieron-no-sobrevivieron">Pudieron abrirse, pero no sobrevivieron</option>
+										<option value="germinaron-no-desarrollaron">Germinaron, pero no pudieron desarrollarse como debían</option>
+										<option value="otro">Otro</option>
+									</select>
+								</div>
+
+								<div class="form-group" id="other-failure-group" style="display: none;">
+									<label for="otherFailureDescription">Especifica el otro tipo de fallo</label>
+									<input type="text" id="otherFailureDescription" name="otherFailureDescription" placeholder="Describe el problema específico">
+								</div>
+
+								<div class="form-group">
+									<label for="qrCode">Ingresa el código ubicado bajo el código QR (ej: 1234567) <span class="required">*</span></label>
+									<input type="text" id="qrCode" name="qrCode" required placeholder="1234567" pattern="[0-9]+" title="Solo números">
 								</div>
 							</div>
 							
@@ -253,27 +293,11 @@
 							<div class="upload-sections">
 								<div class="upload-section">
 									<div class="upload-header">
-										<h3>🌡️ Condiciones de Temperatura</h3>
-										<p>Foto del termómetro o sensor de temperatura del área de cultivo</p>
+										<h3>🌡️💧 Condiciones de Temperatura y Humedad</h3>
+										<p>Foto del termómetro, higrómetro o evidencia de las condiciones ambientales del área de cultivo</p>
 									</div>
-									<div class="upload-area" id="temperature-upload">
-										<input type="file" id="temperature" name="temperature" accept="image/*" required>
-										<div class="upload-placeholder">
-											<div class="upload-icon">📷</div>
-											<p>Haz clic para seleccionar imagen</p>
-											<span>JPG, PNG, max 5MB</span>
-										</div>
-										<div class="upload-preview"></div>
-									</div>
-								</div>
-
-								<div class="upload-section">
-									<div class="upload-header">
-										<h3>💧 Condiciones de Humedad</h3>
-										<p>Foto del higrómetro o evidencia de las condiciones de humedad</p>
-									</div>
-									<div class="upload-area" id="humidity-upload">
-										<input type="file" id="humidity" name="humidity" accept="image/*" required>
+									<div class="upload-area" id="temperature-humidity-upload">
+										<input type="file" id="temperatureHumidity" name="temperatureHumidity" accept="image/*" required>
 										<div class="upload-placeholder">
 											<div class="upload-icon">📷</div>
 											<p>Haz clic para seleccionar imagen</p>
@@ -306,6 +330,22 @@
 									</div>
 									<div class="upload-area" id="qr-upload">
 										<input type="file" id="qr" name="qr" accept="image/*" required>
+										<div class="upload-placeholder">
+											<div class="upload-icon">📷</div>
+											<p>Haz clic para seleccionar imagen</p>
+											<span>JPG, PNG, max 5MB</span>
+										</div>
+										<div class="upload-preview"></div>
+									</div>
+								</div>
+
+								<div class="upload-section">
+									<div class="upload-header">
+										<h3>🧾 Boleta o Comprobante de Compra</h3>
+										<p>Foto de la boleta, factura o comprobante de compra en un vendedor autorizado</p>
+									</div>
+									<div class="upload-area" id="receipt-upload">
+										<input type="file" id="receipt" name="receipt" accept="image/*" required>
 										<div class="upload-placeholder">
 											<div class="upload-icon">📷</div>
 											<p>Haz clic para seleccionar imagen</p>
@@ -445,7 +485,7 @@
 
 			/* Header Styles */
 			.header {
-				background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+				background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 				color: white;
 				padding: 1.5rem 0;
 				box-shadow: var(--shadow-md);
@@ -472,15 +512,18 @@
 			}
 
 			.seed-icon {
-				font-size: 2rem;
-				background: rgba(255, 255, 255, 0.2);
-				border-radius: 50%;
-				width: 4rem;
+				width: auto;
 				height: 4rem;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				backdrop-filter: blur(10px);
+			}
+
+			.logo-img {
+				height: 100%;
+				width: auto;
+				object-fit: contain;
+				max-width: 200px;
 			}
 
 			.logo h1 {
@@ -531,7 +574,7 @@
 
 			.step.active .step-number {
 				background: white;
-				color: var(--color-primary);
+				color: #1a1a1a;
 			}
 
 			.step.completed .step-number {
@@ -636,6 +679,11 @@
 				margin-bottom: 0.5rem;
 				font-weight: 500;
 				color: var(--color-text);
+			}
+
+			.required {
+				color: var(--color-error);
+				font-weight: bold;
 			}
 
 			input[type="text"],
@@ -1190,6 +1238,13 @@
 				line-height: 1;
 			}
 
+			.flag-img {
+				width: 2rem;
+				height: 1.5rem;
+				object-fit: cover;
+				border-radius: 3px;
+			}
+
 			.country-name {
 				font-weight: 500;
 				color: var(--color-text);
@@ -1215,6 +1270,12 @@
 				display: none;
 				align-items: center;
 				gap: 0.75rem;
+				/* Ocultamos completamente el elemento */
+				visibility: hidden;
+				height: 0;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
 			}
 
 			.selected-country.show {
@@ -1459,17 +1520,27 @@
 				// Get country name from selected flag option
 				const selectedCountry = document.querySelector('.flag-option.selected');
 				const countryName = selectedCountry ? selectedCountry.querySelector('.country-name').textContent : form.country.value;
-				const countryFlag = selectedCountry ? selectedCountry.querySelector('.flag').textContent : '';
+				const countryFlagImg = selectedCountry ? selectedCountry.querySelector('.flag-img').src : '';
+				const countryFlagAlt = selectedCountry ? selectedCountry.querySelector('.flag-img').alt : '';
 
 				const summaryData = [
-					{ label: 'País', value: `${countryFlag} ${countryName}` },
+					{ label: 'País', value: countryFlagAlt || countryName },
 					{ label: 'Nombre completo', value: `${formData.get('firstName')} ${formData.get('lastName')}` },
 					{ label: 'Email', value: formData.get('email') },
 					{ label: 'Teléfono', value: formData.get('phone') },
+					{ label: 'Dirección', value: formData.get('address') },
 					{ label: 'Variedad de semilla', value: form.seedVariety.options[form.seedVariety.selectedIndex].text },
 					{ label: 'Cantidad', value: form.quantity.options[form.quantity.selectedIndex].text },
 					{ label: 'Fecha de compra', value: formData.get('purchaseDate') },
-					{ label: 'Fecha de siembra', value: formData.get('plantingDate') },
+					{ label: 'Fecha de germinacion', value: formData.get('plantingDate') },
+					{ label: 'Descripción del problema', value: formData.get('issueDescription') },
+					{ label: 'Tienda donde compraste', value: formData.get('store') },
+					{ label: 'Comentarios adicionales', value: formData.get('problemDescription') || 'No especificado' },
+					{ label: 'Variedades del mix que no germinaron', value: formData.get('mixVarieties') },
+					{ label: 'Conservación de semillas', value: formData.get('seedStorage') },
+					{ label: 'Técnica de germinación', value: formData.get('germinationTechnique') },
+					{ label: 'Tipo de fallo', value: form.failureType.options[form.failureType.selectedIndex].text + (formData.get('otherFailureDescription') ? `: ${formData.get('otherFailureDescription')}` : '') },
+					{ label: 'Código QR', value: formData.get('qrCode') },
 					{ label: 'Imágenes adjuntas', value: '4 archivos subidos' }
 				];
 
@@ -1613,9 +1684,9 @@
 				
 				// Show selected country confirmation
 				const selectedCountryDiv = document.getElementById('selected-country');
-				const flagEmoji = selectedOption.querySelector('.flag').textContent;
+				const flagImg = selectedOption.querySelector('.flag-img');
 				selectedCountryDiv.innerHTML = `
-					<span class="flag">${flagEmoji}</span>
+					<img src="${flagImg.src}" alt="${flagImg.alt}" class="flag-img">
 					<span class="text">País seleccionado: ${countryName}</span>
 				`;
 				selectedCountryDiv.classList.add('show');
@@ -1667,11 +1738,32 @@
 				}
 			}
 
+			// Handle "Other" failure type field visibility
+			function initializeOtherFailureField() {
+				const failureTypeSelect = document.getElementById('failureType');
+				const otherFailureGroup = document.getElementById('other-failure-group');
+				const otherFailureInput = document.getElementById('otherFailureDescription');
+
+				if (failureTypeSelect && otherFailureGroup && otherFailureInput) {
+					failureTypeSelect.addEventListener('change', function() {
+						if (this.value === 'otro') {
+							otherFailureGroup.style.display = 'block';
+							otherFailureInput.required = true;
+						} else {
+							otherFailureGroup.style.display = 'none';
+							otherFailureInput.required = false;
+							otherFailureInput.value = '';
+						}
+					});
+				}
+			}
+
 			// Initialize everything when page loads
 			document.addEventListener('DOMContentLoaded', function() {
 				console.log('DOM Content Loaded');
 				
 				initializeFileUploads();
+				initializeOtherFailureField();
 				document.getElementById('warranty-form').addEventListener('submit', handleFormSubmit);
 				showStep(1);
 				
